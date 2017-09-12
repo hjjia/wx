@@ -1,35 +1,54 @@
+//index.js
+//获取应用实例
 const app = getApp()
 
 Page({
   data: {
-    currentNumber: 0,
-    prevNumber: 0,
+    motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  numSelect: function (event) {
-    console.log(event, 'event');
-    const inputNumber = event.currentTarget.dataset.num;
-    const { prevNumber, currentNumber } = this.data;
-
-    if (inputNumber === '空格') {
-      if ((prevNumber * 1 + 1) === currentNumber * 1) {
-        this.setData({
-          prevNumber: currentNumber,
-          currentNumber: ''
-        });
-      } else {
-        alert('game over');
-        return;
-      }
-    } else if (inputNumber === '占位符') {
-
-    } else {
+  //事件处理函数
+  bindViewTap: function() {
+    wx.navigateTo({
+      url: '../logs/logs'
+    })
+  },
+  onLoad: function () {
+    if (app.globalData.userInfo) {
       this.setData({
-        currentNumber: currentNumber * 1 === 0 ? inputNumber : currentNumber + '' + inputNumber
-      });
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    } else if (this.data.canIUse){
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      app.userInfoReadyCallback = res => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+      }
+    } else {
+      // 在没有 open-type=getUserInfo 版本的兼容处理
+      wx.getUserInfo({
+        success: res => {
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+        }
+      })
     }
-    
+  },
+  getUserInfo: function(e) {
+    console.log(e)
+    app.globalData.userInfo = e.detail.userInfo
+    this.setData({
+      userInfo: e.detail.userInfo,
+      hasUserInfo: true
+    })
   }
 })
