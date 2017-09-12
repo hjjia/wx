@@ -1,0 +1,22 @@
+.container {
+  
+}
+.container .nums-wrapper {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: 1px solid #dfdfdf;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+.container .nums-wrapper .num-item {
+  margin-bottom: 10px;
+  border: 1px solid #dfdfdf;
+  height: 24px;
+  line-height: 22px;
+  width: 30%;
+  text-align: center;
+}
