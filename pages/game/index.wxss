@@ -1,40 +1,114 @@
+body {
+  color: #333;
+}
 .container {
-  
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
 }
 
+.result-wrapper {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  background-color: #C0C3C8; 
+}
+
+.result-wrapper .flex-item {
+  margin-bottom: 10px;
+  /* border: 1px solid #dfdfdf; */
+  width: 30%;
+  background-color: #ABB4BD;
+  box-shadow: 0px 1px 1px #000;
+  border-radius: 5px;
+}
+
+.container .input-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  position: relative;
+  text-align: center; 
+  height: 50px; 
+}
 .container .input-wrapper .prev-num {
-  display: inline-block;
-  vertical-align: middle;
+  position: absolute;
+  top: 3px;
+  left: 6px;
   font-size: 12px;
   margin-right: 10px;
 }
 
 .container .input-wrapper .current-num {
-  min-width: 100px;
-  height: 50px;
-  line-height: 50px;
-  display: inline-block;
-  vertical-align: middle;
   font-size: 18px;
+  font-weight: bold;
+  /* border-bottom: 1px solid #ebebeb;
+  width: 75%; */
+}
+
+.result-wrapper .flex-item.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.result-wrapper .flex-item.info .text {
+  font-size: 12px;
+}
+
+.result-wrapper .flex-item.info .num {
+  font-size: 14px;
+}
+
+.result-wrapper .flex-item.info .num.grade {
+  font-size: 16px;
   font-weight: bold;
 }
 
+.container .broad-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
 .container .nums-wrapper {
-    margin-top: 20px;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    border: 1px solid #dfdfdf;
     padding-top: 20px;
-    padding-bottom: 10px;
+    background-color: #CED6D9;
 }
 
 .container .nums-wrapper .num-item {
   margin-bottom: 10px;
   border: 1px solid #dfdfdf;
-  height: 24px;
-  line-height: 22px;
+  height: 50px;
+  line-height: 48px;
   width: 30%;
   text-align: center;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 1px 1px #000;
+  font-size: 20px;
 }
+
+.btn-group {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btn-group button {
+  width: 30%;
+}
+

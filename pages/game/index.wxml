@@ -1,16 +1,40 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="input-wrapper">
-    <view class="prev-num">
-      {{prevNumber}}
-    </view>
-    <view class="current-num">
-      {{currentNumber}}
-    </view>
+  <view class="btn-group">
+    <button type="primary" loading="{{loading}}" plain="{{plain}}" disabled="{{begin}}" bindtap="beginBtn">
+      开始
+    </button>
+    <button type="warn" loading="{{loading}}" plain="{{plain}}" disabled="{{!begin}}" bindtap="overBtn">
+      结束
+    </button>
+    <button type="default" loading="{{loading}}" plain="{{plain}}" bindtap="default">
+      设置
+    </button>
   </view>
-  <view class="nums-wrapper">
-    <view class="num-item" data-num="{{item}}" wx:for="{{['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '空格', '占位符']}}" wx:key="*this" bindtap='numSelect'>
-      {{item}}
-    </view>
+  <view class="broad-wrapper">
+    <view class="result-wrapper">
+        <view class="input-wrapper flex-item">
+          <view class="prev-num">
+            {{prevNumber}}
+          </view>
+          <view class="current-num">
+            {{currentNumber}}
+          </view>
+        </view>
+        <view class="flex-item info">
+          <view class="text">用时：</view>
+          <view class="num">{{gameTime}}</view>
+        </view>
+        <view class="flex-item info">
+          <view class="text">历史最高分：</view>
+          <view class="num grade">120</view>
+        </view>
+      </view>
+      <view class="nums-wrapper">
+        <view class="num-item" data-num="{{item}}" wx:for="{{['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '空格', '占位符']}}" wx:key="*this" bindtap='numSelect'>
+          {{item}}
+        </view>
+      </view>
   </view>
+  
 </view>
