@@ -1,13 +1,17 @@
 body {
   color: #333;
 }
+page {
+  height: 100%;
+}
 .container {
   padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  overflow: hidden;
+  /* overflow: hidden; */
+  height: 100%;
 }
 
 .result-wrapper {
@@ -52,6 +56,7 @@ body {
   /* border-bottom: 1px solid #ebebeb;
   width: 75%; */
 }
+
 
 .result-wrapper .flex-item.info {
   display: flex;
@@ -106,9 +111,81 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  /* overflow: inherit; */
 }
 
 .btn-group button {
   width: 30%;
 }
 
+.btn-group .setting-btn {
+  position: relative;
+  overflow: initial;
+}
+
+.btn-group .setting-wrapper {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  padding: 5px 10px;
+  z-index: 2;
+  border: 1px solid #dfdfdf;
+  box-shadow: 1px 5px 5px #999;
+  background-color: #fff;
+  width: 100%;
+  margin-top: 4px;
+  border-radius: 5px;
+}
+
+.btn-group .setting-wrapper .setting-item {
+  border-bottom: 1px solid #dfdfdf;
+  height: 30px;
+  line-height: 30px;
+  font-size: 12px;
+}
+
+.btn-group .setting-wrapper .setting-item:last-child {
+  border-bottom: none;
+}
+
+.info-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.info-modal .modal-bg {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.info-modal .modal-content
+ {
+  width: 80%;
+  background-color: #fff;
+  border-radius: 5px;
+  position: relative;
+}
+
+.info-modal .modal-header {
+  padding: 10px;
+}
+
+.info-modal .modal-body {
+  padding: 5px 10px 15px;
+  font-size: 12px;
+}
+
+.info-modal .modal-body view {
+  margin-bottom: 5px;
+}

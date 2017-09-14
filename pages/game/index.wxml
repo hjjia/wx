@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container">
+<view class="container" bindtap="container">
   <view class="btn-group">
     <button type="primary" loading="{{loading}}" plain="{{plain}}" disabled="{{begin}}" bindtap="beginBtn">
       开始
@@ -7,8 +7,15 @@
     <button type="warn" loading="{{loading}}" plain="{{plain}}" disabled="{{!begin}}" bindtap="overBtn">
       结束
     </button>
-    <button type="default" loading="{{loading}}" plain="{{plain}}" bindtap="default">
+    <button class="setting-btn" type="default" loading="{{loading}}" plain="{{plain}}" catchtap="settingBtn">
       设置
+      <block wx:if="{{showOperation}}">
+        <view class="setting-wrapper">
+          <view class="setting-item" bindtap="operation">操作说明</view>
+          <view class="setting-item" bindtap="aboutGame">关于游戏</view>
+          <view class="setting-item" bindtap="contact">联系我们</view>
+        </view>
+      </block>
     </button>
   </view>
   <view class="broad-wrapper">
@@ -22,12 +29,11 @@
           </view>
         </view>
         <view class="flex-item info">
-          <view class="text">用时：</view>
           <view class="num">{{gameTime}}</view>
         </view>
         <view class="flex-item info">
           <view class="text">历史最高分：</view>
-          <view class="num grade">120</view>
+          <view class="num grade">{{maxGrade}}</view>
         </view>
       </view>
       <view class="nums-wrapper">
@@ -36,5 +42,19 @@
         </view>
       </view>
   </view>
+  
+  <block wx:if="{{showModal}}">
+    <view class="info-modal">
+      <view class="modal-bg" catchtap="modalBg"></view>
+      <view class="modal-content">
+        <view class="modal-header">{{modal.title}}</view>
+        <view class="modal-body">
+          <view wx:for="{{modal.content}}" wx:key="*this">
+            {{item}}
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
   
 </view>
